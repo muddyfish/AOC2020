@@ -1,5 +1,3 @@
-valid = 0
-
 translation = str.maketrans("FBLR", "0101", "\n")
 seat_ids = set()
 
