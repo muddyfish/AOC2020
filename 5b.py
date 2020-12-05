@@ -6,4 +6,6 @@ with open("5.txt") as f:
 min_id = min(seat_ids)
 max_id = max(seat_ids)
 
-print(set(range(min_id, max_id+1)) - seat_ids)
+for i in range(min_id, max_id+1):
+    if i not in seat_ids:
+        print(i)
