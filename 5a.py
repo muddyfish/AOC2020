@@ -1,8 +1,6 @@
-translation = str.maketrans("FBLR", "0101", "\n")
-seat_ids = set()
+translation = str.maketrans("FBLR", "0101")
 
 with open("5.txt") as f:
-    for i in f.readlines():
-        seat_ids.add(int(i.translate(translation), 2))
+    data = f.read().translate(translation).split("\n")
 
-print(max(seat_ids))
+print(int(max(data), 2))
