@@ -1,14 +1,9 @@
 import re
 set_regex = re.compile(r"mem\[(\d+)\] = (\d+)")
 
-allow = 0
-deny = 0
 float_bits = []
-
 addresses = {}
-
 allow_trans = str.maketrans("X01", "001")
-deny_trans = str.maketrans("X01", "010")
 
 
 def set_float(bits, pos, value):
@@ -25,7 +20,6 @@ with open("14.txt") as f:
         i = i.strip()
         if i.startswith("mask = "):
             allow = int(i[7:].translate(allow_trans), 2)
-            deny = int(i[7:].translate(deny_trans), 2)
             float_bits = [2**i for i, j in enumerate(i[:6:-1]) if j == "X"]
         else:
             pos, value = map(int, set_regex.match(i).groups())
